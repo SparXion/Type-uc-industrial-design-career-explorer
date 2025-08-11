@@ -26,17 +26,19 @@ def create_app():
     JWTManager(app)
     
     # Register blueprints
-    from .routes.auth import auth_bp
-    from .routes.students import students_bp
-    from .routes.companies import companies_bp
-    from .routes.careers import careers_bp
-    from .routes.ai_engine import ai_engine_bp
+    from routes.auth import auth_bp
+    from routes.students import students_bp
+    from routes.companies import companies_bp
+    from routes.careers import careers_bp
+    from routes.ai_engine import ai_engine_bp
+    from routes.practice_projects import practice_projects_bp
     
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(students_bp, url_prefix='/api/students')
     app.register_blueprint(companies_bp, url_prefix='/api/companies')
     app.register_blueprint(careers_bp, url_prefix='/api/careers')
     app.register_blueprint(ai_engine_bp, url_prefix='/api/ai')
+    app.register_blueprint(practice_projects_bp, url_prefix='/api/practice-projects')
     
     # Health check endpoint
     @app.route('/api/health')
@@ -47,6 +49,29 @@ def create_app():
             'service': 'UC Industrial Design Career Explorer API',
             'version': '1.0.0'
         })
+    
+    # Development endpoint for testing (remove in production)
+    @app.route('/api/dev/test-student', methods=['POST'])
+    def create_test_student():
+        """Development endpoint to create a test student without authentication"""
+        try:
+            data = request.get_json()
+            if not data:
+                return jsonify({'error': 'No data provided'}), 400
+                
+            # Import here to avoid circular imports
+            from services.student_service import StudentService
+            
+            # Create student using service
+            student_id = StudentService.create_student_profile(data)
+            
+            # Get the created student to return
+            student = StudentService.get_student_by_id(student_id)
+            
+            return jsonify(student), 201
+            
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
     
     # Error handlers
     @app.errorhandler(404)
