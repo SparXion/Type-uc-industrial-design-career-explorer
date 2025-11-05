@@ -1,0 +1,83 @@
+# UCID App Development Rules
+# Cursor's Operating System - Under 100 lines, Crystal Clear
+
+## Project Context
+- Industrial Design career exploration app for UC students
+- React + TypeScript + Vite + North Star design system
+- Focus: Student discovery through conversation → career guidance
+- Target: 18-year-olds exploring Industrial Design careers
+
+## Code Patterns
+- Functional components with hooks (no class components)
+- TypeScript strict mode - all props/interfaces defined
+- North Star CSS variables: --uc-primary, --uc-space-4, --uc-text-xl
+- Error boundaries for all major components
+- localStorage for data persistence
+
+## File Conventions
+- Components: PascalCase (VideoIntroduction.tsx)
+- Styles: kebab-case (north-star-system.css)
+- Types: camelCase interfaces (ConversationContext)
+- Services: camelCase (llmService.ts)
+- Constants: UPPER_SNAKE_CASE
+
+## Component Structure
+```typescript
+// 1. Imports (React, hooks, types, services)
+// 2. Interface definitions
+// 3. Component function
+// 4. State declarations
+// 5. useEffect hooks
+// 6. Event handlers
+// 7. Render return
+// 8. Export default
+```
+
+## Testing Strategy
+- Write tests first, then implementation
+- Test user journeys, not implementation details
+- Mock external dependencies (localStorage, navigation)
+- Use descriptive test names that explain behavior
+
+## AI Behavior Rules
+- Always consider full user journey (video → conversation → forms → career)
+- Prioritize accessibility and performance
+- Suggest improvements, don't just fix bugs
+- Maintain North Star design system consistency
+- Cache user data appropriately
+
+## Error Handling
+- Graceful fallbacks for video loading
+- Clear error messages for users
+- Console logging for debugging
+- No silent failures
+
+## Performance
+- Lazy load components when possible
+- Optimize images and videos
+- Minimize bundle size
+- Fast page transitions
+
+## Accessibility
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast support
+- Focus indicators
+
+## Data Flow
+- Conversation cache → localStorage
+- Interest patterns → career suggestions
+- Form data → career exploration
+- Visual inspiration → engagement
+
+## Dependencies
+- React 18+ with hooks
+- TypeScript 5+
+- Vite 4+
+- React Router v6
+- Framer Motion for animations
+
+## Version Control
+- Commit messages: "feat:", "fix:", "docs:", "test:"
+- Feature branches for new functionality
+- PR reviews required for main branch

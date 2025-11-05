@@ -1,0 +1,316 @@
+**Summary**: `load_dataset.cypher` is a Cypher script that initializes the `idcareersorter` Neo4j database for the Industrial Design Career Sorter. It clears existing data, creates 35 `Interest` nodes (e.g., “Drawing Spaceships”), 28 `Skill` nodes (e.g., “Concept Art”), and 25 `Role` nodes (e.g., “Concept Designer”), and establishes relationships: `ADJACENT_TO` (between interests, weight 0.8), `DEVELOPS` (interests to skills, weight 0.9), and `LEADS_TO` (skills to roles). The script includes verification queries to confirm the database structure (88 nodes, relationships, and “Concept Art” presence). It was executed in Neo4j Browser to populate the database for `prototype.py`.
+
+:use idcareersorter;
+
+// Clear existing data (optional, since database is empty)
+MATCH (n) DETACH DELETE n;
+
+// Create Interest nodes
+CREATE (i1:Interest {name: "Drawing Spaceships", description: "Sketching futuristic vehicles or spacecraft, often with detailed designs"})
+CREATE (i2:Interest {name: "Building with LEGO", description: "Constructing structures, vehicles, or inventions using LEGO bricks"})
+CREATE (i3:Interest {name: "Playing with Action Figures", description: "Creating stories or scenes with action figures, focusing on their design or movement"})
+CREATE (i4:Interest {name: "Assembling Model Kits", description: "Building detailed scale models (e.g., cars, planes) with glue and paint"})
+CREATE (i5:Interest {name: "Playing Video Games", description: "Engaging in games like Minecraft or SimCity, designing worlds or characters"})
+CREATE (i6:Interest {name: "Crafting with Clay", description: "Shaping figures, objects, or prototypes with clay or Play-Doh"})
+CREATE (i7:Interest {name: "Constructing Forts", description: "Building blanket forts, treehouses, or play structures from household items"})
+CREATE (i8:Interest {name: "Drawing Superheroes", description: "Creating original superhero characters with unique costumes and gadgets"})
+CREATE (i9:Interest {name: "Creating Comic Strips", description: "Writing and drawing short stories or comics with characters and plots"})
+CREATE (i10:Interest {name: "Designing Game Levels", description: "Imagining or sketching layouts for video game environments or board games"})
+CREATE (i11:Interest {name: "Sculpting with Play-Doh", description: "Molding imaginative shapes, animals, or objects from colorful dough"})
+CREATE (i12:Interest {name: "Woodworking", description: "Building simple projects like birdhouses or small furniture with basic tools"})
+CREATE (i13:Interest {name: "Sewing or Fabric Crafts", description: "Stitching simple designs or making items like pillows or stuffed toys"})
+CREATE (i14:Interest {name: "Paper Models", description: "Folding origami, making paper airplanes, or creating pop-up cards"})
+CREATE (i15:Interest {name: "Creating Dioramas", description: "Building small scenes or environments with figures, cardboard, or natural materials"})
+CREATE (i16:Interest {name: "Stop-Motion Animation", description: "Filming toys or objects to create short animated stories"})
+CREATE (i17:Interest {name: "Photography", description: "Taking pictures of objects, nature, or setups with a camera"})
+CREATE (i18:Interest {name: "Fixing Broken Toys", description: "Repairing or repurposing damaged toys or gadgets"})
+CREATE (i19:Interest {name: "Taking Things Apart", description: "Disassembling clocks, radios, or toys to explore their mechanics"})
+CREATE (i20:Interest {name: "Science Kits", description: "Using chemistry or engineering kits to build small projects or experiments"})
+CREATE (i21:Interest {name: "Building Kites", description: "Constructing and flying kites or gliders from paper, wood, or fabric"})
+CREATE (i22:Interest {name: "Creating Costumes", description: "Designing outfits or props for pretend play, like capes or masks"})
+CREATE (i23:Interest {name: "Rearranging Rooms", description: "Redesigning bedroom layouts or organizing spaces for fun or function"})
+CREATE (i24:Interest {name: "Storytelling with Objects", description: "Making up narratives with toys, boxes, or crafted items (e.g., shoebox spaceship)"})
+CREATE (i25:Interest {name: "Painting or Coloring", description: "Using paints or markers to create art or decorate objects"})
+CREATE (i26:Interest {name: "Making Jewelry", description: "Stringing beads or crafting accessories from simple materials"})
+CREATE (i27:Interest {name: "Building with Cardboard", description: "Creating structures, costumes, or props from boxes or cardboard sheets"})
+CREATE (i28:Interest {name: "Playing with Meccano Sets", description: "Constructing mechanical models with metal parts, gears, and screws"})
+CREATE (i29:Interest {name: "Designing Board Games", description: "Inventing rules, pieces, or boards for homemade games"})
+CREATE (i30:Interest {name: "Creating Mods for Games", description: "Modifying video games to add new characters, levels, or items"})
+CREATE (i31:Interest {name: "Coding Simple Games", description: "Writing basic programs or games using tools like Scratch or early coding kits"})
+CREATE (i32:Interest {name: "Gardening or Nature Projects", description: "Building fairy gardens or arranging plants and natural materials"})
+CREATE (i33:Interest {name: "Making Puppets", description: "Crafting puppets from socks, paper, or fabric and performing with them"})
+CREATE (i34:Interest {name: "Building Rubber-Band Cars", description: "Constructing small vehicles powered by rubber bands or simple motors"})
+CREATE (i35:Interest {name: "Designing Mazes or Puzzles", description: "Drawing or building physical mazes, puzzles, or brain teasers"})
+
+// Create Skill nodes
+CREATE (s1:Skill {name: "Sketching"})
+CREATE (s2:Skill {name: "Concept Art"})
+CREATE (s3:Skill {name: "Visual Communication"})
+CREATE (s4:Skill {name: "3D Modeling"})
+CREATE (s5:Skill {name: "Prototyping"})
+CREATE (s6:Skill {name: "Structural Design"})
+CREATE (s7:Skill {name: "User-Centered Design"})
+CREATE (s8:Skill {name: "Toy Design"})
+CREATE (s9:Skill {name: "Ergonomics"})
+CREATE (s10:Skill {name: "Material Selection"})
+CREATE (s11:Skill {name: "Manufacturing Processes"})
+CREATE (s12:Skill {name: "UX/UI Design"})
+CREATE (s13:Skill {name: "Systems Design"})
+CREATE (s14:Skill {name: "Interactive Prototyping"})
+CREATE (s15:Skill {name: "Material Exploration"})
+CREATE (s16:Skill {name: "Model-Making"})
+CREATE (s17:Skill {name: "Tactile Design"})
+CREATE (s18:Skill {name: "Spatial Reasoning"})
+CREATE (s19:Skill {name: "Visual Storytelling"})
+CREATE (s20:Skill {name: "Graphic Design"})
+CREATE (s21:Skill {name: "Mechanical Understanding"})
+CREATE (s22:Skill {name: "Problem-Solving"})
+CREATE (s23:Skill {name: "Aerodynamics"})
+CREATE (s24:Skill {name: "Aesthetics"})
+CREATE (s25:Skill {name: "Color Theory"})
+CREATE (s26:Skill {name: "Precision Design"})
+CREATE (s27:Skill {name: "Storytelling"})
+CREATE (s28:Skill {name: "Systems Thinking"})
+
+// Create Role nodes
+CREATE (r1:Role {name: "Concept Designer"})
+CREATE (r2:Role {name: "Automotive Designer"})
+CREATE (r3:Role {name: "Product Designer"})
+CREATE (r4:Role {name: "Toy Designer"})
+CREATE (r5:Role {name: "Consumer Product Designer"})
+CREATE (r6:Role {name: "Industrial Designer"})
+CREATE (r7:Role {name: "Prototype Specialist"})
+CREATE (r8:Role {name: "Interaction Designer"})
+CREATE (r9:Role {name: "Game Peripheral Designer"})
+CREATE (r10:Role {name: "Furniture Designer"})
+CREATE (r11:Role {name: "Packaging Designer"})
+CREATE (r12:Role {name: "Exhibit Designer"})
+CREATE (r13:Role {name: "Multimedia Designer"})
+CREATE (r14:Role {name: "Product Photographer"})
+CREATE (r15:Role {name: "Branding Designer"})
+CREATE (r16:Role {name: "Repair Designer"})
+CREATE (r17:Role {name: "Material Designer"})
+CREATE (r18:Role {name: "Outdoor Gear Designer"})
+CREATE (r19:Role {name: "Fashion Designer"})
+CREATE (r20:Role {name: "Soft Goods Designer"})
+CREATE (r21:Role {name: "Accessory Designer"})
+CREATE (r22:Role {name: "Interior Designer"})
+CREATE (r23:Role {name: "Game Designer"})
+CREATE (r24:Role {name: "Software-Integrated Designer"})
+CREATE (r25:Role {name: "Sustainable Designer"})
+
+// Carry forward all nodes for MATCH statements
+WITH *
+
+// Create ADJACENT_TO relationships (weight = 0.8)
+MATCH (i1:Interest {name: "Drawing Spaceships"}), (i8:Interest {name: "Drawing Superheroes"}) CREATE (i1)-[:ADJACENT_TO {weight: 0.8}]->(i8);
+MATCH (i1:Interest {name: "Drawing Spaceships"}), (i9:Interest {name: "Creating Comic Strips"}) CREATE (i1)-[:ADJACENT_TO {weight: 0.8}]->(i9);
+MATCH (i1:Interest {name: "Drawing Spaceships"}), (i10:Interest {name: "Designing Game Levels"}) CREATE (i1)-[:ADJACENT_TO {weight: 0.8}]->(i10);
+MATCH (i2:Interest {name: "Building with LEGO"}), (i4:Interest {name: "Assembling Model Kits"}) CREATE (i2)-[:ADJACENT_TO {weight: 0.8}]->(i4);
+MATCH (i2:Interest {name: "Building with LEGO"}), (i7:Interest {name: "Constructing Forts"}) CREATE (i2)-[:ADJACENT_TO {weight: 0.8}]->(i7);
+MATCH (i2:Interest {name: "Building with LEGO"}), (i28:Interest {name: "Playing with Meccano Sets"}) CREATE (i2)-[:ADJACENT_TO {weight: 0.8}]->(i28);
+MATCH (i3:Interest {name: "Playing with Action Figures"}), (i15:Interest {name: "Creating Dioramas"}) CREATE (i3)-[:ADJACENT_TO {weight: 0.8}]->(i15);
+MATCH (i3:Interest {name: "Playing with Action Figures"}), (i16:Interest {name: "Stop-Motion Animation"}) CREATE (i3)-[:ADJACENT_TO {weight: 0.8}]->(i16);
+MATCH (i4:Interest {name: "Assembling Model Kits"}), (i12:Interest {name: "Woodworking"}) CREATE (i4)-[:ADJACENT_TO {weight: 0.8}]->(i12);
+MATCH (i4:Interest {name: "Assembling Model Kits"}), (i18:Interest {name: "Fixing Broken Toys"}) CREATE (i4)-[:ADJACENT_TO {weight: 0.8}]->(i18);
+MATCH (i5:Interest {name: "Playing Video Games"}), (i10:Interest {name: "Designing Game Levels"}) CREATE (i5)-[:ADJACENT_TO {weight: 0.8}]->(i10);
+MATCH (i5:Interest {name: "Playing Video Games"}), (i30:Interest {name: "Creating Mods for Games"}) CREATE (i5)-[:ADJACENT_TO {weight: 0.8}]->(i30);
+MATCH (i6:Interest {name: "Crafting with Clay"}), (i11:Interest {name: "Sculpting with Play-Doh"}) CREATE (i6)-[:ADJACENT_TO {weight: 0.8}]->(i11);
+MATCH (i6:Interest {name: "Crafting with Clay"}), (i13:Interest {name: "Sewing or Fabric Crafts"}) CREATE (i6)-[:ADJACENT_TO {weight: 0.8}]->(i13);
+MATCH (i6:Interest {name: "Crafting with Clay"}), (i14:Interest {name: "Paper Models"}) CREATE (i6)-[:ADJACENT_TO {weight: 0.8}]->(i14);
+MATCH (i7:Interest {name: "Constructing Forts"}), (i12:Interest {name: "Woodworking"}) CREATE (i7)-[:ADJACENT_TO {weight: 0.8}]->(i12);
+MATCH (i7:Interest {name: "Constructing Forts"}), (i23:Interest {name: "Rearranging Rooms"}) CREATE (i7)-[:ADJACENT_TO {weight: 0.8}]->(i23);
+MATCH (i8:Interest {name: "Drawing Superheroes"}), (i9:Interest {name: "Creating Comic Strips"}) CREATE (i8)-[:ADJACENT_TO {weight: 0.8}]->(i9);
+MATCH (i8:Interest {name: "Drawing Superheroes"}), (i22:Interest {name: "Creating Costumes"}) CREATE (i8)-[:ADJACENT_TO {weight: 0.8}]->(i22);
+MATCH (i9:Interest {name: "Creating Comic Strips"}), (i24:Interest {name: "Storytelling with Objects"}) CREATE (i9)-[:ADJACENT_TO {weight: 0.8}]->(i24);
+MATCH (i10:Interest {name: "Designing Game Levels"}), (i30:Interest {name: "Creating Mods for Games"}) CREATE (i10)-[:ADJACENT_TO {weight: 0.8}]->(i30);
+MATCH (i11:Interest {name: "Sculpting with Play-Doh"}), (i14:Interest {name: "Paper Models"}) CREATE (i11)-[:ADJACENT_TO {weight: 0.8}]->(i14);
+MATCH (i11:Interest {name: "Sculpting with Play-Doh"}), (i15:Interest {name: "Creating Dioramas"}) CREATE (i11)-[:ADJACENT_TO {weight: 0.8}]->(i15);
+MATCH (i12:Interest {name: "Woodworking"}), (i18:Interest {name: "Fixing Broken Toys"}) CREATE (i12)-[:ADJACENT_TO {weight: 0.8}]->(i18);
+MATCH (i13:Interest {name: "Sewing or Fabric Crafts"}), (i22:Interest {name: "Creating Costumes"}) CREATE (i13)-[:ADJACENT_TO {weight: 0.8}]->(i22);
+MATCH (i14:Interest {name: "Paper Models"}), (i15:Interest {name: "Creating Dioramas"}) CREATE (i14)-[:ADJACENT_TO {weight: 0.8}]->(i15);
+MATCH (i15:Interest {name: "Creating Dioramas"}), (i16:Interest {name: "Stop-Motion Animation"}) CREATE (i15)-[:ADJACENT_TO {weight: 0.8}]->(i16);
+MATCH (i16:Interest {name: "Stop-Motion Animation"}), (i17:Interest {name: "Photography"}) CREATE (i16)-[:ADJACENT_TO {weight: 0.8}]->(i17);
+MATCH (i18:Interest {name: "Fixing Broken Toys"}), (i19:Interest {name: "Taking Things Apart"}) CREATE (i18)-[:ADJACENT_TO {weight: 0.8}]->(i19);
+MATCH (i19:Interest {name: "Taking Things Apart"}), (i20:Interest {name: "Science Kits"}) CREATE (i19)-[:ADJACENT_TO {weight: 0.8}]->(i20);
+MATCH (i20:Interest {name: "Science Kits"}), (i21:Interest {name: "Building Kites"}) CREATE (i20)-[:ADJACENT_TO {weight: 0.8}]->(i21);
+MATCH (i21:Interest {name: "Building Kites"}), (i14:Interest {name: "Paper Models"}) CREATE (i21)-[:ADJACENT_TO {weight: 0.8}]->(i14);
+MATCH (i22:Interest {name: "Creating Costumes"}), (i3:Interest {name: "Playing with Action Figures"}) CREATE (i22)-[:ADJACENT_TO {weight: 0.8}]->(i3);
+MATCH (i23:Interest {name: "Rearranging Rooms"}), (i2:Interest {name: "Building with LEGO"}) CREATE (i23)-[:ADJACENT_TO {weight: 0.8}]->(i2);
+MATCH (i24:Interest {name: "Storytelling with Objects"}), (i3:Interest {name: "Playing with Action Figures"}) CREATE (i24)-[:ADJACENT_TO {weight: 0.8}]->(i3);
+MATCH (i25:Interest {name: "Painting or Coloring"}), (i1:Interest {name: "Drawing Spaceships"}) CREATE (i25)-[:ADJACENT_TO {weight: 0.8}]->(i1);
+MATCH (i26:Interest {name: "Making Jewelry"}), (i13:Interest {name: "Sewing or Fabric Crafts"}) CREATE (i26)-[:ADJACENT_TO {weight: 0.8}]->(i13);
+MATCH (i27:Interest {name: "Building with Cardboard"}), (i7:Interest {name: "Constructing Forts"}) CREATE (i27)-[:ADJACENT_TO {weight: 0.8}]->(i7);
+MATCH (i28:Interest {name: "Playing with Meccano Sets"}), (i4:Interest {name: "Assembling Model Kits"}) CREATE (i28)-[:ADJACENT_TO {weight: 0.8}]->(i4);
+MATCH (i29:Interest {name: "Designing Board Games"}), (i10:Interest {name: "Designing Game Levels"}) CREATE (i29)-[:ADJACENT_TO {weight: 0.8}]->(i10);
+MATCH (i30:Interest {name: "Creating Mods for Games"}), (i31:Interest {name: "Coding Simple Games"}) CREATE (i30)-[:ADJACENT_TO {weight: 0.8}]->(i31);
+MATCH (i31:Interest {name: "Coding Simple Games"}), (i10:Interest {name: "Designing Game Levels"}) CREATE (i31)-[:ADJACENT_TO {weight: 0.8}]->(i10);
+MATCH (i32:Interest {name: "Gardening or Nature Projects"}), (i15:Interest {name: "Creating Dioramas"}) CREATE (i32)-[:ADJACENT_TO {weight: 0.8}]->(i15);
+MATCH (i33:Interest {name: "Making Puppets"}), (i13:Interest {name: "Sewing or Fabric Crafts"}) CREATE (i33)-[:ADJACENT_TO {weight: 0.8}]->(i13);
+MATCH (i34:Interest {name: "Building Rubber-Band Cars"}), (i20:Interest {name: "Science Kits"}) CREATE (i34)-[:ADJACENT_TO {weight: 0.8}]->(i20);
+MATCH (i35:Interest {name: "Designing Mazes or Puzzles"}), (i10:Interest {name: "Designing Game Levels"}) CREATE (i35)-[:ADJACENT_TO {weight: 0.8}]->(i10);
+
+// Create DEVELOPS relationships (weight = 0.9)
+MATCH (i1:Interest {name: "Drawing Spaceships"}), (s1:Skill {name: "Sketching"}) CREATE (i1)-[:DEVELOPS {weight: 0.9}]->(s1);
+MATCH (i1:Interest {name: "Drawing Spaceships"}), (s2:Skill {name: "Concept Art"}) CREATE (i1)-[:DEVELOPS {weight: 0.9}]->(s2);
+MATCH (i1:Interest {name: "Drawing Spaceships"}), (s3:Skill {name: "Visual Communication"}) CREATE (i1)-[:DEVELOPS {weight: 0.9}]->(s3);
+MATCH (i2:Interest {name: "Building with LEGO"}), (s4:Skill {name: "3D Modeling"}) CREATE (i2)-[:DEVELOPS {weight: 0.9}]->(s4);
+MATCH (i2:Interest {name: "Building with LEGO"}), (s5:Skill {name: "Prototyping"}) CREATE (i2)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i2:Interest {name: "Building with LEGO"}), (s6:Skill {name: "Structural Design"}) CREATE (i2)-[:DEVELOPS {weight: 0.9}]->(s6);
+MATCH (i3:Interest {name: "Playing with Action Figures"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i3)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i3:Interest {name: "Playing with Action Figures"}), (s8:Skill {name: "Toy Design"}) CREATE (i3)-[:DEVELOPS {weight: 0.9}]->(s8);
+MATCH (i3:Interest {name: "Playing with Action Figures"}), (s9:Skill {name: "Ergonomics"}) CREATE (i3)-[:DEVELOPS {weight: 0.9}]->(s9);
+MATCH (i4:Interest {name: "Assembling Model Kits"}), (s5:Skill {name: "Prototyping"}) CREATE (i4)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i4:Interest {name: "Assembling Model Kits"}), (s10:Skill {name: "Material Selection"}) CREATE (i4)-[:DEVELOPS {weight: 0.9}]->(s10);
+MATCH (i4:Interest {name: "Assembling Model Kits"}), (s11:Skill {name: "Manufacturing Processes"}) CREATE (i4)-[:DEVELOPS {weight: 0.9}]->(s11);
+MATCH (i5:Interest {name: "Playing Video Games"}), (s12:Skill {name: "UX/UI Design"}) CREATE (i5)-[:DEVELOPS {weight: 0.9}]->(s12);
+MATCH (i5:Interest {name: "Playing Video Games"}), (s13:Skill {name: "Systems Design"}) CREATE (i5)-[:DEVELOPS {weight: 0.9}]->(s13);
+MATCH (i5:Interest {name: "Playing Video Games"}), (s14:Skill {name: "Interactive Prototyping"}) CREATE (i5)-[:DEVELOPS {weight: 0.9}]->(s14);
+MATCH (i6:Interest {name: "Crafting with Clay"}), (s15:Skill {name: "Material Exploration"}) CREATE (i6)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i6:Interest {name: "Crafting with Clay"}), (s16:Skill {name: "Model-Making"}) CREATE (i6)-[:DEVELOPS {weight: 0.9}]->(s16);
+MATCH (i6:Interest {name: "Crafting with Clay"}), (s17:Skill {name: "Tactile Design"}) CREATE (i6)-[:DEVELOPS {weight: 0.9}]->(s17);
+MATCH (i7:Interest {name: "Constructing Forts"}), (s5:Skill {name: "Prototyping"}) CREATE (i7)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i7:Interest {name: "Constructing Forts"}), (s18:Skill {name: "Spatial Reasoning"}) CREATE (i7)-[:DEVELOPS {weight: 0.9}]->(s18);
+MATCH (i7:Interest {name: "Constructing Forts"}), (s6:Skill {name: "Structural Design"}) CREATE (i7)-[:DEVELOPS {weight: 0.9}]->(s6);
+MATCH (i8:Interest {name: "Drawing Superheroes"}), (s1:Skill {name: "Sketching"}) CREATE (i8)-[:DEVELOPS {weight: 0.9}]->(s1);
+MATCH (i8:Interest {name: "Drawing Superheroes"}), (s19:Skill {name: "Visual Storytelling"}) CREATE (i8)-[:DEVELOPS {weight: 0.9}]->(s19);
+MATCH (i8:Interest {name: "Drawing Superheroes"}), (s2:Skill {name: "Concept Art"}) CREATE (i8)-[:DEVELOPS {weight: 0.9}]->(s2);
+MATCH (i9:Interest {name: "Creating Comic Strips"}), (s3:Skill {name: "Visual Communication"}) CREATE (i9)-[:DEVELOPS {weight: 0.9}]->(s3);
+MATCH (i9:Interest {name: "Creating Comic Strips"}), (s27:Skill {name: "Storytelling"}) CREATE (i9)-[:DEVELOPS {weight: 0.9}]->(s27);
+MATCH (i9:Interest {name: "Creating Comic Strips"}), (s20:Skill {name: "Graphic Design"}) CREATE (i9)-[:DEVELOPS {weight: 0.9}]->(s20);
+MATCH (i10:Interest {name: "Designing Game Levels"}), (s13:Skill {name: "Systems Design"}) CREATE (i10)-[:DEVELOPS {weight: 0.9}]->(s13);
+MATCH (i10:Interest {name: "Designing Game Levels"}), (s12:Skill {name: "UX/UI Design"}) CREATE (i10)-[:DEVELOPS {weight: 0.9}]->(s12);
+MATCH (i10:Interest {name: "Designing Game Levels"}), (s18:Skill {name: "Spatial Reasoning"}) CREATE (i10)-[:DEVELOPS {weight: 0.9}]->(s18);
+MATCH (i11:Interest {name: "Sculpting with Play-Doh"}), (s16:Skill {name: "Model-Making"}) CREATE (i11)-[:DEVELOPS {weight: 0.9}]->(s16);
+MATCH (i11:Interest {name: "Sculpting with Play-Doh"}), (s17:Skill {name: "Tactile Design"}) CREATE (i11)-[:DEVELOPS {weight: 0.9}]->(s17);
+MATCH (i11:Interest {name: "Sculpting with Play-Doh"}), (s15:Skill {name: "Material Exploration"}) CREATE (i11)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i12:Interest {name: "Woodworking"}), (s5:Skill {name: "Prototyping"}) CREATE (i12)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i12:Interest {name: "Woodworking"}), (s10:Skill {name: "Material Selection"}) CREATE (i12)-[:DEVELOPS {weight: 0.9}]->(s10);
+MATCH (i12:Interest {name: "Woodworking"}), (s11:Skill {name: "Manufacturing Processes"}) CREATE (i12)-[:DEVELOPS {weight: 0.9}]->(s11);
+MATCH (i13:Interest {name: "Sewing or Fabric Crafts"}), (s15:Skill {name: "Material Exploration"}) CREATE (i13)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i13:Interest {name: "Sewing or Fabric Crafts"}), (s17:Skill {name: "Tactile Design"}) CREATE (i13)-[:DEVELOPS {weight: 0.9}]->(s17);
+MATCH (i13:Interest {name: "Sewing or Fabric Crafts"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i13)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i14:Interest {name: "Paper Models"}), (s16:Skill {name: "Model-Making"}) CREATE (i14)-[:DEVELOPS {weight: 0.9}]->(s16);
+MATCH (i14:Interest {name: "Paper Models"}), (s26:Skill {name: "Precision Design"}) CREATE (i14)-[:DEVELOPS {weight: 0.9}]->(s26);
+MATCH (i14:Interest {name: "Paper Models"}), (s3:Skill {name: "Visual Communication"}) CREATE (i14)-[:DEVELOPS {weight: 0.9}]->(s3);
+MATCH (i15:Interest {name: "Creating Dioramas"}), (s16:Skill {name: "Model-Making"}) CREATE (i15)-[:DEVELOPS {weight: 0.9}]->(s16);
+MATCH (i15:Interest {name: "Creating Dioramas"}), (s27:Skill {name: "Storytelling"}) CREATE (i15)-[:DEVELOPS {weight: 0.9}]->(s27);
+MATCH (i15:Interest {name: "Creating Dioramas"}), (s18:Skill {name: "Spatial Reasoning"}) CREATE (i15)-[:DEVELOPS {weight: 0.9}]->(s18);
+MATCH (i16:Interest {name: "Stop-Motion Animation"}), (s27:Skill {name: "Storytelling"}) CREATE (i16)-[:DEVELOPS {weight: 0.9}]->(s27);
+MATCH (i16:Interest {name: "Stop-Motion Animation"}), (s3:Skill {name: "Visual Communication"}) CREATE (i16)-[:DEVELOPS {weight: 0.9}]->(s3);
+MATCH (i16:Interest {name: "Stop-Motion Animation"}), (s5:Skill {name: "Prototyping"}) CREATE (i16)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i17:Interest {name: "Photography"}), (s3:Skill {name: "Visual Communication"}) CREATE (i17)-[:DEVELOPS {weight: 0.9}]->(s3);
+MATCH (i17:Interest {name: "Photography"}), (s24:Skill {name: "Aesthetics"}) CREATE (i17)-[:DEVELOPS {weight: 0.9}]->(s24);
+MATCH (i17:Interest {name: "Photography"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i17)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i18:Interest {name: "Fixing Broken Toys"}), (s5:Skill {name: "Prototyping"}) CREATE (i18)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i18:Interest {name: "Fixing Broken Toys"}), (s22:Skill {name: "Problem-Solving"}) CREATE (i18)-[:DEVELOPS {weight: 0.9}]->(s22);
+MATCH (i18:Interest {name: "Fixing Broken Toys"}), (s10:Skill {name: "Material Selection"}) CREATE (i18)-[:DEVELOPS {weight: 0.9}]->(s10);
+MATCH (i19:Interest {name: "Taking Things Apart"}), (s22:Skill {name: "Problem-Solving"}) CREATE (i19)-[:DEVELOPS {weight: 0.9}]->(s22);
+MATCH (i19:Interest {name: "Taking Things Apart"}), (s21:Skill {name: "Mechanical Understanding"}) CREATE (i19)-[:DEVELOPS {weight: 0.9}]->(s21);
+MATCH (i19:Interest {name: "Taking Things Apart"}), (s5:Skill {name: "Prototyping"}) CREATE (i19)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i20:Interest {name: "Science Kits"}), (s5:Skill {name: "Prototyping"}) CREATE (i20)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i20:Interest {name: "Science Kits"}), (s15:Skill {name: "Material Exploration"}) CREATE (i20)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i20:Interest {name: "Science Kits"}), (s28:Skill {name: "Systems Thinking"}) CREATE (i20)-[:DEVELOPS {weight: 0.9}]->(s28);
+MATCH (i21:Interest {name: "Building Kites"}), (s5:Skill {name: "Prototyping"}) CREATE (i21)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i21:Interest {name: "Building Kites"}), (s10:Skill {name: "Material Selection"}) CREATE (i21)-[:DEVELOPS {weight: 0.9}]->(s10);
+MATCH (i21:Interest {name: "Building Kites"}), (s23:Skill {name: "Aerodynamics"}) CREATE (i21)-[:DEVELOPS {weight: 0.9}]->(s23);
+MATCH (i22:Interest {name: "Creating Costumes"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i22)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i22:Interest {name: "Creating Costumes"}), (s15:Skill {name: "Material Exploration"}) CREATE (i22)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i22:Interest {name: "Creating Costumes"}), (s3:Skill {name: "Visual Communication"}) CREATE (i22)-[:DEVELOPS {weight: 0.9}]->(s3);
+MATCH (i23:Interest {name: "Rearranging Rooms"}), (s18:Skill {name: "Spatial Reasoning"}) CREATE (i23)-[:DEVELOPS {weight: 0.9}]->(s18);
+MATCH (i23:Interest {name: "Rearranging Rooms"}), (s24:Skill {name: "Aesthetics"}) CREATE (i23)-[:DEVELOPS {weight: 0.9}]->(s24);
+MATCH (i23:Interest {name: "Rearranging Rooms"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i23)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i24:Interest {name: "Storytelling with Objects"}), (s27:Skill {name: "Storytelling"}) CREATE (i24)-[:DEVELOPS {weight: 0.9}]->(s27);
+MATCH (i24:Interest {name: "Storytelling with Objects"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i24)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i24:Interest {name: "Storytelling with Objects"}), (s2:Skill {name: "Concept Art"}) CREATE (i24)-[:DEVELOPS {weight: 0.9}]->(s2);
+MATCH (i25:Interest {name: "Painting or Coloring"}), (s3:Skill {name: "Visual Communication"}) CREATE (i25)-[:DEVELOPS {weight: 0.9}]->(s3);
+MATCH (i25:Interest {name: "Painting or Coloring"}), (s24:Skill {name: "Aesthetics"}) CREATE (i25)-[:DEVELOPS {weight: 0.9}]->(s24);
+MATCH (i25:Interest {name: "Painting or Coloring"}), (s25:Skill {name: "Color Theory"}) CREATE (i25)-[:DEVELOPS {weight: 0.9}]->(s25);
+MATCH (i26:Interest {name: "Making Jewelry"}), (s15:Skill {name: "Material Exploration"}) CREATE (i26)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i26:Interest {name: "Making Jewelry"}), (s17:Skill {name: "Tactile Design"}) CREATE (i26)-[:DEVELOPS {weight: 0.9}]->(s17);
+MATCH (i26:Interest {name: "Making Jewelry"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i26)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i27:Interest {name: "Building with Cardboard"}), (s5:Skill {name: "Prototyping"}) CREATE (i27)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i27:Interest {name: "Building with Cardboard"}), (s18:Skill {name: "Spatial Reasoning"}) CREATE (i27)-[:DEVELOPS {weight: 0.9}]->(s18);
+MATCH (i27:Interest {name: "Building with Cardboard"}), (s15:Skill {name: "Material Exploration"}) CREATE (i27)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i28:Interest {name: "Playing with Meccano Sets"}), (s4:Skill {name: "3D Modeling"}) CREATE (i28)-[:DEVELOPS {weight: 0.9}]->(s4);
+MATCH (i28:Interest {name: "Playing with Meccano Sets"}), (s21:Skill {name: "Mechanical Understanding"}) CREATE (i28)-[:DEVELOPS {weight: 0.9}]->(s21);
+MATCH (i28:Interest {name: "Playing with Meccano Sets"}), (s5:Skill {name: "Prototyping"}) CREATE (i28)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i29:Interest {name: "Designing Board Games"}), (s13:Skill {name: "Systems Design"}) CREATE (i29)-[:DEVELOPS {weight: 0.9}]->(s13);
+MATCH (i29:Interest {name: "Designing Board Games"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i29)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i29:Interest {name: "Designing Board Games"}), (s5:Skill {name: "Prototyping"}) CREATE (i29)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i30:Interest {name: "Creating Mods for Games"}), (s13:Skill {name: "Systems Design"}) CREATE (i30)-[:DEVELOPS {weight: 0.9}]->(s13);
+MATCH (i30:Interest {name: "Creating Mods for Games"}), (s12:Skill {name: "UX/UI Design"}) CREATE (i30)-[:DEVELOPS {weight: 0.9}]->(s12);
+MATCH (i30:Interest {name: "Creating Mods for Games"}), (s5:Skill {name: "Prototyping"}) CREATE (i30)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i31:Interest {name: "Coding Simple Games"}), (s13:Skill {name: "Systems Design"}) CREATE (i31)-[:DEVELOPS {weight: 0.9}]->(s13);
+MATCH (i31:Interest {name: "Coding Simple Games"}), (s14:Skill {name: "Interactive Prototyping"}) CREATE (i31)-[:DEVELOPS {weight: 0.9}]->(s14);
+MATCH (i31:Interest {name: "Coding Simple Games"}), (s12:Skill {name: "UX/UI Design"}) CREATE (i31)-[:DEVELOPS {weight: 0.9}]->(s12);
+MATCH (i32:Interest {name: "Gardening or Nature Projects"}), (s18:Skill {name: "Spatial Reasoning"}) CREATE (i32)-[:DEVELOPS {weight: 0.9}]->(s18);
+MATCH (i32:Interest {name: "Gardening or Nature Projects"}), (s15:Skill {name: "Material Exploration"}) CREATE (i32)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i32:Interest {name: "Gardening or Nature Projects"}), (s24:Skill {name: "Aesthetics"}) CREATE (i32)-[:DEVELOPS {weight: 0.9}]->(s24);
+MATCH (i33:Interest {name: "Making Puppets"}), (s27:Skill {name: "Storytelling"}) CREATE (i33)-[:DEVELOPS {weight: 0.9}]->(s27);
+MATCH (i33:Interest {name: "Making Puppets"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i33)-[:DEVELOPS {weight: 0.9}]->(s7);
+MATCH (i33:Interest {name: "Making Puppets"}), (s15:Skill {name: "Material Exploration"}) CREATE (i33)-[:DEVELOPS {weight: 0.9}]->(s15);
+MATCH (i34:Interest {name: "Building Rubber-Band Cars"}), (s5:Skill {name: "Prototyping"}) CREATE (i34)-[:DEVELOPS {weight: 0.9}]->(s5);
+MATCH (i34:Interest {name: "Building Rubber-Band Cars"}), (s21:Skill {name: "Mechanical Understanding"}) CREATE (i34)-[:DEVELOPS {weight: 0.9}]->(s21);
+MATCH (i34:Interest {name: "Building Rubber-Band Cars"}), (s10:Skill {name: "Material Selection"}) CREATE (i34)-[:DEVELOPS {weight: 0.9}]->(s10);
+MATCH (i35:Interest {name: "Designing Mazes or Puzzles"}), (s13:Skill {name: "Systems Design"}) CREATE (i35)-[:DEVELOPS {weight: 0.9}]->(s13);
+MATCH (i35:Interest {name: "Designing Mazes or Puzzles"}), (s18:Skill {name: "Spatial Reasoning"}) CREATE (i35)-[:DEVELOPS {weight: 0.9}]->(s18);
+MATCH (i35:Interest {name: "Designing Mazes or Puzzles"}), (s7:Skill {name: "User-Centered Design"}) CREATE (i35)-[:DEVELOPS {weight: 0.9}]->(s7);
+
+// Create LEADS_TO relationships
+MATCH (s1:Skill {name: "Sketching"}), (r1:Role {name: "Concept Designer"}) CREATE (s1)-[:LEADS_TO]->(r1);
+MATCH (s1:Skill {name: "Sketching"}), (r4:Role {name: "Toy Designer"}) CREATE (s1)-[:LEADS_TO]->(r4);
+MATCH (s2:Skill {name: "Concept Art"}), (r1:Role {name: "Concept Designer"}) CREATE (s2)-[:LEADS_TO]->(r1);
+MATCH (s2:Skill {name: "Concept Art"}), (r4:Role {name: "Toy Designer"}) CREATE (s2)-[:LEADS_TO]->(r4);
+MATCH (s3:Skill {name: "Visual Communication"}), (r1:Role {name: "Concept Designer"}) CREATE (s3)-[:LEADS_TO]->(r1);
+MATCH (s3:Skill {name: "Visual Communication"}), (r15:Role {name: "Branding Designer"}) CREATE (s3)-[:LEADS_TO]->(r15);
+MATCH (s3:Skill {name: "Visual Communication"}), (r14:Role {name: "Product Photographer"}) CREATE (s3)-[:LEADS_TO]->(r14);
+MATCH (s4:Skill {name: "3D Modeling"}), (r3:Role {name: "Product Designer"}) CREATE (s4)-[:LEADS_TO]->(r3);
+MATCH (s4:Skill {name: "3D Modeling"}), (r6:Role {name: "Industrial Designer"}) CREATE (s4)-[:LEADS_TO]->(r6);
+MATCH (s5:Skill {name: "Prototyping"}), (r3:Role {name: "Product Designer"}) CREATE (s5)-[:LEADS_TO]->(r3);
+MATCH (s5:Skill {name: "Prototyping"}), (r6:Role {name: "Industrial Designer"}) CREATE (s5)-[:LEADS_TO]->(r6);
+MATCH (s5:Skill {name: "Prototyping"}), (r7:Role {name: "Prototype Specialist"}) CREATE (s5)-[:LEADS_TO]->(r7);
+MATCH (s6:Skill {name: "Structural Design"}), (r3:Role {name: "Product Designer"}) CREATE (s6)-[:LEADS_TO]->(r3);
+MATCH (s6:Skill {name: "Structural Design"}), (r10:Role {name: "Furniture Designer"}) CREATE (s6)-[:LEADS_TO]->(r10);
+MATCH (s7:Skill {name: "User-Centered Design"}), (r5:Role {name: "Consumer Product Designer"}) CREATE (s7)-[:LEADS_TO]->(r5);
+MATCH (s7:Skill {name: "User-Centered Design"}), (r8:Role {name: "Interaction Designer"}) CREATE (s7)-[:LEADS_TO]->(r8);
+MATCH (s7:Skill {name: "User-Centered Design"}), (r19:Role {name: "Fashion Designer"}) CREATE (s7)-[:LEADS_TO]->(r19);
+MATCH (s8:Skill {name: "Toy Design"}), (r4:Role {name: "Toy Designer"}) CREATE (s8)-[:LEADS_TO]->(r4);
+MATCH (s9:Skill {name: "Ergonomics"}), (r5:Role {name: "Consumer Product Designer"}) CREATE (s9)-[:LEADS_TO]->(r5);
+MATCH (s10:Skill {name: "Material Selection"}), (r6:Role {name: "Industrial Designer"}) CREATE (s10)-[:LEADS_TO]->(r6);
+MATCH (s10:Skill {name: "Material Selection"}), (r17:Role {name: "Material Designer"}) CREATE (s10)-[:LEADS_TO]->(r17);
+MATCH (s11:Skill {name: "Manufacturing Processes"}), (r6:Role {name: "Industrial Designer"}) CREATE (s11)-[:LEADS_TO]->(r6);
+MATCH (s12:Skill {name: "UX/UI Design"}), (r8:Role {name: "Interaction Designer"}) CREATE (s12)-[:LEADS_TO]->(r8);
+MATCH (s12:Skill {name: "UX/UI Design"}), (r9:Role {name: "Game Peripheral Designer"}) CREATE (s12)-[:LEADS_TO]->(r9);
+MATCH (s13:Skill {name: "Systems Design"}), (r8:Role {name: "Interaction Designer"}) CREATE (s13)-[:LEADS_TO]->(r8);
+MATCH (s13:Skill {name: "Systems Design"}), (r23:Role {name: "Game Designer"}) CREATE (s13)-[:LEADS_TO]->(r23);
+MATCH (s14:Skill {name: "Interactive Prototyping"}), (r8:Role {name: "Interaction Designer"}) CREATE (s14)-[:LEADS_TO]->(r8);
+MATCH (s14:Skill {name: "Interactive Prototyping"}), (r24:Role {name: "Software-Integrated Designer"}) CREATE (s14)-[:LEADS_TO]->(r24);
+MATCH (s15:Skill {name: "Material Exploration"}), (r10:Role {name: "Furniture Designer"}) CREATE (s15)-[:LEADS_TO]->(r10);
+MATCH (s15:Skill {name: "Material Exploration"}), (r11:Role {name: "Packaging Designer"}) CREATE (s15)-[:LEADS_TO]->(r11);
+MATCH (s16:Skill {name: "Model-Making"}), (r10:Role {name: "Furniture Designer"}) CREATE (s16)-[:LEADS_TO]->(r10);
+MATCH (s16:Skill {name: "Model-Making"}), (r12:Role {name: "Exhibit Designer"}) CREATE (s16)-[:LEADS_TO]->(r12);
+MATCH (s17:Skill {name: "Tactile Design"}), (r11:Role {name: "Packaging Designer"}) CREATE (s17)-[:LEADS_TO]->(r11);
+MATCH (s17:Skill {name: "Tactile Design"}), (r20:Role {name: "Soft Goods Designer"}) CREATE (s17)-[:LEADS_TO]->(r20);
+MATCH (s18:Skill {name: "Spatial Reasoning"}), (r10:Role {name: "Furniture Designer"}) CREATE (s18)-[:LEADS_TO]->(r10);
+MATCH (s18:Skill {name: "Spatial Reasoning"}), (r12:Role {name: "Exhibit Designer"}) CREATE (s18)-[:LEADS_TO]->(r12);
+MATCH (s19:Skill {name: "Visual Storytelling"}), (r1:Role {name: "Concept Designer"}) CREATE (s19)-[:LEADS_TO]->(r1);
+MATCH (s20:Skill {name: "Graphic Design"}), (r15:Role {name: "Branding Designer"}) CREATE (s20)-[:LEADS_TO]->(r15);
+MATCH (s21:Skill {name: "Mechanical Understanding"}), (r6:Role {name: "Industrial Designer"}) CREATE (s21)-[:LEADS_TO]->(r6);
+MATCH (s21:Skill {name: "Mechanical Understanding"}), (r7:Role {name: "Prototype Specialist"}) CREATE (s21)-[:LEADS_TO]->(r7);
+MATCH (s22:Skill {name: "Problem-Solving"}), (r6:Role {name: "Industrial Designer"}) CREATE (s22)-[:LEADS_TO]->(r6);
+MATCH (s22:Skill {name: "Problem-Solving"}), (r16:Role {name: "Repair Designer"}) CREATE (s22)-[:LEADS_TO]->(r16);
+MATCH (s23:Skill {name: "Aerodynamics"}), (r18:Role {name: "Outdoor Gear Designer"}) CREATE (s23)-[:LEADS_TO]->(r18);
+MATCH (s24:Skill {name: "Aesthetics"}), (r14:Role {name: "Product Photographer"}) CREATE (s24)-[:LEADS_TO]->(r14);
+MATCH (s24:Skill {name: "Aesthetics"}), (r22:Role {name: "Interior Designer"}) CREATE (s24)-[:LEADS_TO]->(r22);
+MATCH (s25:Skill {name: "Color Theory"}), (r15:Role {name: "Branding Designer"}) CREATE (s25)-[:LEADS_TO]->(r15);
+MATCH (s26:Skill {name: "Precision Design"}), (r11:Role {name: "Packaging Designer"}) CREATE (s26)-[:LEADS_TO]->(r11);
+MATCH (s27:Skill {name: "Storytelling"}), (r13:Role {name: "Multimedia Designer"}) CREATE (s27)-[:LEADS_TO]->(r13);
+MATCH (s27:Skill {name: "Storytelling"}), (r4:Role {name: "Toy Designer"}) CREATE (s27)-[:LEADS_TO]->(r4);
+MATCH (s28:Skill {name: "Systems Thinking"}), (r17:Role {name: "Material Designer"}) CREATE (s28)-[:LEADS_TO]->(r17);
+MATCH (s28:Skill {name: "Systems Thinking"}), (r25:Role {name: "Sustainable Designer"}) CREATE (s28)-[:LEADS_TO]->(r25);
+
+// Verify the data
+MATCH (n) RETURN labels(n) AS Label, count(n) AS Count;
+MATCH (i:Interest) RETURN i.name, i.description LIMIT 5;
+MATCH (n) WHERE toLower(n.name) = "concept art" RETURN n;

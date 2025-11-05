@@ -1,0 +1,33 @@
+Report created: 
+	7/30/2024	10:42:12 AM
+
+Project name: Koala Tea Cafe COMPLETE.aep
+
+Source files collected to: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Completed Examples\Koala Tea Cafe COMPLETE folder
+
+Source files collected: All
+
+Collected comps:  
+	Koala Tea Cafe
+	
+Number of collected files:  2
+
+Size of collected files:  63.6 MB
+
+Collected source files: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Assets\Vertical Steam.mov
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Designs\Koala Tea Cafe.psd
+	
+Rendering plug-ins:
+	Classic 3D
+	
+Effects used:  1
+
+Effect:  Levels
+	
+
+Layer:  Text Layer
+	External dependencies:  
+		Font family: “Barbieri”, Font style: “Light”
+

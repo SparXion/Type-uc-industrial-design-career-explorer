@@ -1,0 +1,23 @@
+Report created: 
+	7/30/2024	10:41:51 AM
+
+Project name: Make It Mooove COMPLETE.aep
+
+Source files collected to: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Completed Examples\Make It Mooove COMPLETE folder
+
+Source files collected: All
+
+Collected comps:  
+	Make it Mooove
+	
+Number of collected files:  1
+
+Size of collected files:  11.6 MB
+
+Collected source files: 
+	E:\Adobe\10.IntroToAfterEffects\Designs\Make it Mooove.psd
+	
+Rendering plug-ins:
+	Classic 3D
+	

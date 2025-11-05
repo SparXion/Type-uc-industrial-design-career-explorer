@@ -196,3 +196,9 @@ celerybeat.pid
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# Large video/training files
+Video AE Training/After-Effects/**/*.mov
+Video AE Training/After-Effects/**/*.zip
+**/*.mov
+**/*.zip

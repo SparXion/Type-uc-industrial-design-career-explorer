@@ -1,0 +1,29 @@
+Report created: 
+	7/30/2024	10:30:59 AM
+
+Project name: Soda Promo.aep
+
+Source files collected to: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Completed Examples\Soda Promo folder
+
+Source files collected: All
+
+Collected comps:  
+	Wotate Icon Pre
+	Soda Promo
+	
+Number of collected files:  2
+
+Size of collected files:  10.1 MB
+
+Collected source files: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Soda Promo folder\(Footage)\3 Assets\Attention-RedBG.jpg
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Soda Promo folder\(Footage)\3 Assets\Soda Placeholder.png
+	
+Rendering plug-ins:
+	Advanced 3D
+	
+Layer:  Text Layer
+	External dependencies:  
+		Font family: “Roc Grotesk Variable”, Font style: “Compressed Medium”
+

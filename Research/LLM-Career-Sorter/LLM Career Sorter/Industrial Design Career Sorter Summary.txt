@@ -1,0 +1,15 @@
+**Abstract**  
+The Industrial Design Career Sorter is a Python-based application designed to map childhood interests to industrial design career paths using a graph database and natural language processing. By leveraging Neo4j and sentence-transformers, the tool matches user inputs to a curated dataset of interests, skills, and roles, providing personalized career recommendations with learning resources. Developed in a macOS environment with Visual Studio Code, the project integrates interactive features, output persistence, and role summarization, making it a practical tool for career exploration in industrial design.
+
+**Project Description**  
+The Industrial Design Career Sorter addresses the challenge of guiding individuals toward industrial design careers based on formative childhood interests. The system uses a Neo4j graph database (`idcareersorter`) to store a dataset of 35 interests (e.g., “Drawing Spaceships”), 28 skills (e.g., “Concept Art”), and 25 roles (e.g., “Concept Designer”), connected by `ADJACENT_TO`, `DEVELOPS`, and `LEADS_TO` relationships. The dataset, loaded via a Cypher script (`load_dataset.cypher`), captures the interconnected nature of creative activities and professional pathways. The core application, `prototype.py`, employs the `sentence-transformers` library (`all-MiniLM-L6-v2` model) to compute cosine similarity between user inputs and interest descriptions, ensuring robust matching even for novel inputs (e.g., “I loved making sandcastles”).  
+
+Key features include:  
+1. **Interactive Input**: Users enter interests via a terminal prompt, with a loop allowing multiple runs until typing “exit.”  
+2. **Concept Art Highlighting**: Emphasizes the “Concept Art” skill, reflecting its prominence in the dataset’s graph structure.  
+3. **Learning Resources**: Suggests online courses (e.g., Coursera, Udemy) for recommended roles, enhancing practical utility.  
+4. **Output Persistence**: Saves results with timestamps to `career_sorter_output.txt` for record-keeping.  
+5. **Role Summary**: Displays a session-wide summary of unique roles, streamlining career path exploration.  
+6. **Input Validation**: Rejects empty inputs to ensure reliable operation.  
+
+Developed iteratively in Visual Studio Code, the project resolved dependency issues (e.g., `sentencepiece` build errors) and Neo4j syntax challenges, ensuring compatibility with macOS and the `idcareersorter` database. The sorter’s ability to handle diverse inputs, integrate graph-based relationships, and provide actionable outputs makes it a valuable tool for students, educators, and career advisors in industrial design. Future enhancements could include a graphical interface or expanded datasets to cover additional creative fields.

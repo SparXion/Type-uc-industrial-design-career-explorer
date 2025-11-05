@@ -1,0 +1,25 @@
+Report created: 
+	7/30/2024	10:43:07 AM
+
+Project name: Shape Design COMPLETE.aep
+
+Source files collected to: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Completed Examples\Shape Design COMPLETE folder
+
+Source files collected: All
+
+Collected comps:  
+	Shape Design - COMPLETE
+	
+Number of collected files:  3
+
+Size of collected files:  16.8 MB
+
+Collected source files: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Assets\Dark Blue Background.png
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Assets\Orange Background.png
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Assets\Shape Design Reference.png
+	
+Rendering plug-ins:
+	Classic 3D
+	

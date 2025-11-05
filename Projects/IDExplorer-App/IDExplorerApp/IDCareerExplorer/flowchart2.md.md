@@ -1,0 +1,21 @@
+# Industrial Design Career Explorer Flowchart
+- Landing Page
+  - Click "Start Now" --> Interests Input
+- Interests Input
+  - Select cards/upload --> Creative Outlets Input
+- Creative Outlets Input
+  - Select tiles/upload --> Skills & Suggestions
+- Skills & Suggestions
+  - Continue input --> Update boxes
+  - Click career box --> Career Exploration
+- Career Exploration
+  - Select content --> Sub-Exploration
+  - Click "Practice Project" --> Practice Project
+  - Back --> Skills & Suggestions
+- Sub-Exploration
+  - Select sub-box --> Deeper content
+  - Back --> Career Exploration
+- Practice Project
+  - Complete/back --> Career Exploration
+- Wrap-Up
+  - Save profile/connect --> End

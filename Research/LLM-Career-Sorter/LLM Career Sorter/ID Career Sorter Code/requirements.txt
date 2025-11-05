@@ -1,0 +1,5 @@
+**Summary**: `requirements.txt` specifies the Python dependencies required to run `prototype.py` in the Industrial Design Career Sorter project. It lists three libraries: `neo4j` (for database connectivity), `sentence-transformers` (for NLP-based similarity matching), and `numpy` (for numerical computations). These were installed in a virtual environment (`venv`) on macOS using `pip install -r requirements.txt`, ensuring compatibility with the latest Python version (e.g., 3.13). The file is located in `~/id-career-sorter` and supports the project’s core functionality.
+
+neo4j
+sentence-transformers
+numpy

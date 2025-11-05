@@ -1,0 +1,49 @@
+Report created: 
+	7/30/2024	10:41:16 AM
+
+Project name: BloomBumblegum COMPLETE.aep
+
+Source files collected to: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Completed Examples\BloomBumblegum COMPLETE folder
+
+Source files collected: All
+
+Collected comps:  
+	Bloom Logo Layered
+	Logo Holder
+	bumblegum
+	Bloom Bumblegum COMPLETE
+	Background
+	Accent Elements
+	Speckle Texture 
+	
+Number of collected files:  2
+
+Size of collected files:  31.8 MB
+
+Collected source files: 
+	Z:\Dropbox\_____\Intro to AE\Bloom Bumblegum KH Resized Folder\Bloom Bumblegum Combined Only.psd
+	Z:\Dropbox\_____\Intro to AE\Bloom Logo Layered.ai
+	
+Rendering plug-ins:
+	Classic 3D
+	
+Effects used:  6
+
+Effect:  Animate By
+	
+Effect:  Fill
+	
+Effect:  Slide In - Direction
+	
+Effect:  Slide in From
+	
+Effect:  Slider Control
+	
+Effect:  Stroke
+	
+
+Layer:  Text Layer
+	External dependencies:  
+		Font family: “Barbieri”, Font style: “Bold”
+

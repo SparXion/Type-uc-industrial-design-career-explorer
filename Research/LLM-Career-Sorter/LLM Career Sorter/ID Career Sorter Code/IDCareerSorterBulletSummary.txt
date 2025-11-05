@@ -1,0 +1,16 @@
+- **Students**:
+  - Matches childhood interests to industrial design careers, revealing latent talents.
+  - Narrows vast ID field to specific roles, reducing overwhelm.
+  - Suggests skills and learning paths for career development.
+- **Educators**:
+  - Aligns instruction with students’ interests to build relevant skills.
+  - Guides students toward career paths matching their talents.
+  - Supports tailored projects to prepare for ID roles.
+- **Employers**:
+  - Identifies students with skill sets suited to specific ID roles.
+  - Connects childhood interests to professional competencies.
+  - Streamlines talent scouting for creative and technical positions.
+- **Future Insights**:
+  - Add temperament sorting to match personality to careers.
+  - Use LAB profiles for personalized role alignment.
+  - Build a two-way career portal for students, educators, and employers to connect.

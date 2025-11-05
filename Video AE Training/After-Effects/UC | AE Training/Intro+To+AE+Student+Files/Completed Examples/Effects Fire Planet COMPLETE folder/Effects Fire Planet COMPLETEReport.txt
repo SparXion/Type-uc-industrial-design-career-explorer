@@ -1,0 +1,31 @@
+Report created: 
+	7/30/2024	10:33:18 AM
+
+Project name: Effects Fire Planet COMPLETE.aep
+
+Source files collected to: 
+	E:\Adobe\10.IntroToAfterEffects\Intro To AE Student Files\Completed Examples\Effects Fire Planet COMPLETE folder
+
+Source files collected: None
+
+Collected comps:  
+	Fire Planet
+	
+Number of collected files:  0
+
+Size of collected files:  0 KB
+
+Rendering plug-ins:
+	Classic 3D
+	
+Effects used:  4
+
+Effect:  CC Sphere
+	
+Effect:  Fractal Noise
+	
+Effect:  Gradient Ramp
+	
+Effect:  Tritone
+	
+

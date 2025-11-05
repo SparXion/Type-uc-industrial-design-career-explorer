@@ -1,121 +1,188 @@
-# UC Bearcat Grant Industrial Design App
+# UCID - Industrial Design Career Explorer
 
-An AI-powered career matching platform that connects industrial design students with companies through intelligent matching of interests, talents, and career paths.
+**Fresh Start Implementation** - Based on North Star Design Documents
 
-## 🚀 Tech Stack
+## 🎯 **Project Overview**
 
-### Frontend
-- **React 18** - Dynamic UI framework
-- **Material-UI (MUI)** - Component library and styling
-- **TypeScript** - Type safety and better development experience
+UCID is a conversational career discovery application designed specifically for Industrial Design students at the University of Cincinnati. The app helps students identify their interests and talents to create personalized career paths in Industrial Design.
 
-### Backend
-- **Flask** - Python web framework for REST API
-- **Python 3.11+** - Backend logic and AI processing
+## 🚀 **Fresh Start Features**
 
-### Database
-- **MongoDB** - Flexible, scalable NoSQL database
-- **MongoDB Atlas** - Cloud database service
+### **UX Anchor Flow (North Star Implementation)**
+1. **Video Introduction** - Full-screen video with skip functionality
+2. **Ready State** - "Ready?" prompt with animated arrow button
+3. **Conversational Interface** - AI-powered career discovery chat
+4. **Form Collection** - Multi-step form for talents, interests, and goals
+5. **Career Exploration** - Interactive career path exploration with hover effects
 
-### AI & Machine Learning
-- **TensorFlow/OpenCV** - Computer vision and image processing
-- **spaCy** - Natural language processing
-- **Hugging Face** - Advanced NLP models
+### **Design System**
+- **North Star CSS Variables** - Complete design token system
+- **White Artboard Aesthetic** - Clean, minimal design philosophy
+- **Blue Primary Colors** - #007BFF interactive elements
+- **Responsive Design** - Mobile-first approach
+- **Smooth Animations** - Framer Motion integration
 
-### Development & Deployment
-- **Docker** - Containerization
-- **Git** - Version control
-- **Cloud Platform** - AWS/GCP/Azure (to be configured)
+## 🛠️ **Technology Stack**
 
-## 📁 Project Structure
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Custom CSS with North Star design system
+- **Routing**: React Router v6
+- **Animations**: Framer Motion
+- **Font**: Inter (Google Fonts)
+
+## 📁 **Project Structure**
 
 ```
-uc-industrial-design-app/
-├── frontend/                 # React frontend application
-├── backend/                  # Flask backend API
-├── docs/                     # Documentation and specifications
-├── docker/                   # Docker configuration files
-├── scripts/                  # Utility and setup scripts
-├── tests/                    # Test suites
-└── README.md                 # This file
+src/
+├── components/           # React components
+│   ├── VideoIntroduction.tsx
+│   ├── ReadyState.tsx
+│   ├── ConversationalInterface.tsx
+│   ├── FormCollection.tsx
+│   └── CareerExploration.tsx
+├── styles/              # CSS design system
+│   └── north-star-system.css
+├── pages/               # Page components (future)
+├── utils/               # Utility functions (future)
+├── App.tsx              # Main app component
+└── main.tsx             # Entry point
 ```
 
-## 🛠️ Installation & Setup
+## 🎨 **Design Philosophy**
 
-### Prerequisites
-- Node.js 18+ and npm
-- Python 3.11+
-- Git
-- Docker (optional, for containerization)
+**"White artboard with interactive bits"** - Clean, minimal design focused on content with strategic interactive elements that guide users through their career discovery journey.
 
-### Quick Start
+### **Color Palette**
+- **Primary**: #007BFF (Interactive elements)
+- **Secondary**: #6C757D (Secondary text)
+- **Success**: #28A745 (Success states)
+- **Warning**: #FFC107 (Attention states)
+- **Danger**: #DC3545 (Error states)
 
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd uc-industrial-design-app
-   ```
+### **Typography**
+- **Font Family**: Inter (Clean, readable)
+- **Scale**: 12px to 36px with consistent ratios
+- **Line Heights**: Tight (1.25), Normal (1.5), Relaxed (1.75)
 
-2. **Install Frontend Dependencies**
-   ```bash
-   cd frontend
-   npm install
-   ```
+## 🚀 **Getting Started**
 
-3. **Install Backend Dependencies**
-   ```bash
-   cd ../backend
-   pip install -r requirements.txt
-   ```
+### **Prerequisites**
+- Node.js 18+ 
+- npm or yarn
 
-4. **Set up Environment Variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
+### **Installation**
+```bash
+# Clone the repository
+git clone [repository-url]
 
-5. **Start Development Servers**
-   ```bash
-   # Terminal 1 - Frontend
-   cd frontend
-   npm start
-   
-   # Terminal 2 - Backend
-   cd backend
-   python app.py
-   ```
+# Navigate to project directory
+cd ucid-app-fresh
 
-## 🔧 Development Commands
+# Install dependencies
+npm install
 
-### Frontend
-- `npm start` - Start development server
-- `npm build` - Build for production
-- `npm test` - Run tests
-- `npm run lint` - Lint code
+# Start development server
+npm run dev
+```
 
-### Backend
-- `python app.py` - Start Flask development server
-- `python -m pytest` - Run tests
-- `python -m flake8` - Lint code
+### **Development Commands**
+```bash
+npm run dev          # Start development server (port 3000)
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+```
 
-## 📚 Documentation
+## 📱 **User Experience Flow**
 
-- [App Flowchart](./docs/UCApp-flowchart-mermaid.md) - User interface flow
-- [Development Plan](./docs/UC-Bearcat-Grant-Plan.md) - Complete project roadmap
-- [API Documentation](./docs/api.md) - Backend API endpoints
+1. **Landing** → Full-screen video introduction
+2. **Ready State** → "Ready?" with arrow button
+3. **Conversation** → AI chat for career discovery
+4. **Collection** → Multi-step form for user data
+5. **Exploration** → Interactive career path selection
 
-## 🤝 Contributing
+## 🔧 **Customization**
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### **Adding New Career Paths**
+Edit `src/components/CareerExploration.tsx`:
+```typescript
+const careerPaths: CareerPath[] = [
+  {
+    id: 'new-path',
+    title: 'New Career Path',
+    description: 'Description here',
+    skills: ['Skill 1', 'Skill 2'],
+    companies: ['Company 1', 'Company 2'],
+    icon: '🎯'
+  }
+];
+```
 
-## 📄 License
+### **Modifying Design System**
+Edit `src/styles/north-star-system.css`:
+```css
+:root {
+  --uc-primary: #YOUR_COLOR;
+  --uc-text-primary: #YOUR_TEXT_COLOR;
+}
+```
 
-This project is part of the UC Bearcat Grant program.
+## 📊 **Next Steps (Phase 2)**
 
-## 🆘 Support
+### **Backend Integration**
+- PostgreSQL database setup
+- AI conversation engine
+- User profile management
+- Data persistence
 
-For questions or issues, please contact the development team or create an issue in this repository.
+### **Advanced Features**
+- Career path recommendations
+- Skill gap analysis
+- Company networking
+- Progress tracking
+
+### **Deployment**
+- AWS infrastructure
+- Docker containerization
+- CI/CD pipeline
+- Security compliance
+
+## 🎯 **North Star Alignment**
+
+This implementation follows the exact specifications from:
+- `UCID-CSS-UI-North-Star.md` - Visual design system
+- `UCID-North-Star.md` - Product vision and requirements
+
+### **Key Implementations**
+- ✅ White artboard aesthetic
+- ✅ Blue-based color system
+- ✅ UX anchor flow (1-5)
+- ✅ Interactive elements with hover effects
+- ✅ Responsive design system
+- ✅ Smooth transitions and animations
+
+## 🤝 **Contributing**
+
+1. Follow the North Star design system
+2. Maintain white artboard aesthetic
+3. Use CSS variables for consistency
+4. Test responsive behavior
+5. Ensure accessibility compliance
+
+## 📄 **License**
+
+MIT License - See LICENSE file for details
+
+## 🔗 **Related Documents**
+
+- **North Star**: `Docs/North-Star/`
+- **Training Materials**: `Docs/Starter-Training/`
+- **Assets**: `Assets/Images/`
+- **PRD**: `Docs/PRD/`
+
+---
+
+*Built with ❤️ for UC Industrial Design students*
+
+
