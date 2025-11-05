@@ -202,3 +202,14 @@ Video AE Training/After-Effects/**/*.mov
 Video AE Training/After-Effects/**/*.zip
 **/*.mov
 **/*.zip
+
+# Secrets and credentials - NEVER commit these!
+**/config.py
+**/.env
+**/.env.local
+**/.env.*.local
+**/secrets.py
+**/*credentials*
+**/*secret*
+**/*key*.py
+!.env.example
